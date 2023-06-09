@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>浅谈博弈 | Squanch7七柒的Blog</title><meta name="author" content="Squanch777,linzhixin2014@163.com"><meta name="copyright" content="Squanch777"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="博弈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈博弈">
+<meta property="og:url" content="https://squanch777.github.io/2021/10/02/zone-sum%20game/index.html">
+<meta property="og:site_name" content="Squanch7七柒的Blog">
+<meta property="og:description" content="博弈">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/10/03/QX5BbWya9r7VU8j.jpg">
+<meta property="article:published_time" content="2021-10-02T14:05:45.000Z">
+<meta property="article:modified_time" content="2021-12-07T01:35:33.497Z">
+<meta property="article:author" content="Squanch777">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/10/03/QX5BbWya9r7VU8j.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://squanch777.github.io/2021/10/02/zone-sum%20game/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '浅谈博弈',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-07 09:35:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/gh/radium-bit/res@master/live2d/autoload.js" async></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/cat.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/10/03/QX5BbWya9r7VU8j.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Squanch7七柒的Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">浅谈博弈</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-02T14:05:45.000Z" title="发表于 2021-10-02 22:05:45">2021-10-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-07T01:35:33.497Z" title="更新于 2021-12-07 09:35:33">2021-12-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="浅谈博弈"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="博弈"><a class="markdownIt-Anchor" href="#博弈">#</a> 博弈</h1>
+<p>​	何为博弈？</p>
+<p>​	“在一定条件下，遵守一定的规则，一个或几个拥有绝对理性思维的人或团队，从各自允许选择的行为或策略进行选择并加以实施，并从中各自取得相应结果或收益的过程。有时候也用作动词，特指对选择的行为或策略加以实施的过程。”</p>
+<hr>
+<p>​	今天参加了学校的经济决策行为实验。</p>
+<p>​	博弈的参加者：随机分配 2 人为一组，并且不知道互相的身份；</p>
+<p>​	博弈信息：通过决策决定投入研发费用与生产费用确定销售阶段销售价格函数；</p>
+<p>​	博弈方可选择的全部行为或者策略的集合：1. 每人每轮 80 块，生产成本为 2 元 / 件，研发费用自定义，生产成本 + 研发费用不得超过 80 元；</p>
+<p>​	博弈的次序：需双方共同结束一轮决策后进行下一轮，共 15 轮；</p>
+<p>​	博弈方的收益：根据双方的决策确定各自的产品数量与共同的产品成本，赚取总收益并且按 6000 游戏币 / 元由学校发钱。</p>
+<hr>
+<h2 id="规则-公式简述简述"><a class="markdownIt-Anchor" href="#规则-公式简述简述">#</a> 规则、公式简述（简述）</h2>
+<p>Q：总产量 	P：价格 		   q1：A 的产量 	q2：B 的产量</p>
+<p>R：总收入	K：研发费用	  K*：汇报的研发费用</p>
+<p>研发进度 = RANDOM [0,k)*a（a 随着研发进度的提高而下降）</p>
+<p>第一阶段：Q=122-P  R=P*q  Q=q1+q2</p>
+<hr>
+<p>当仅仅只有一家公司研发进度为 100%，进入第二阶段，产品分为 N1、N2</p>
+<p>N1:Q=80-P N2:Q=100-P</p>
+<p>当只有一家公司研发成功后，这家公司将掌握产品 N2 的价格</p>
+<hr>
+<p>两家公司都研发完毕，进入第三阶段，产品不再分类</p>
+<p>Q=200-P  Q=q1+q2</p>
+<hr>
+<h2 id="决策流程"><a class="markdownIt-Anchor" href="#决策流程">#</a> 决策流程</h2>
+<p>​	当我发现前几轮迅速实现研发成功，那么将会获得产品 N2 的完全定价权并且获得最高利润 2400 / 轮，去除所得税折现成人民币将是 3 元 / 轮</p>
+<p>​	如果双方能够同时进入第三阶段，那么在饱和生产下，双方的收益均是 4800 / 轮，去除所得税折现成人民币将是 6 元 / 轮。</p>
+<p>​	因此我选择了第一轮 60 元研发投入，第二轮 60 元研发投入，在确定第三轮研发投入之前，我的研发进度已经达到 90%，在考虑随着研发进度的提高，系数 a 的下降，我在第三轮保守地确定了 40 元的研发投入并研发成功。</p>
+<p>​	此时，与我同一分组的另一位参与者并没有研发成功。我们进入第二阶段，我实现了第二阶段的利润最大化即每轮 3 元的收入。在第 8 轮后，另一位参与者研发成功，我们进去第三阶段，于第 9 轮开始连续获得 7 次 6 元收入。</p>
+<p>​	但是据我观察，我左边的参与者于 15 轮都未实现研发成功，也就是说与她合作的参与者无论如何都只能最大获得每轮 3 元的收入，这只是我们第三阶段收入的一半。</p>
+<hr>
+<h2 id="反思"><a class="markdownIt-Anchor" href="#反思">#</a> 反思</h2>
+<p>​	<strong>1</strong>：我是否该采取更为激进的研发投入，例如在第一轮、第二轮投入 70 元，但在 K * 确认为 80 元，虽然按规则有 20% 的风险被发现并处罚，但是如果能够提前一轮研发成功，势必能为我带来后续更大的收益。</p>
+<p>​	<strong>2</strong>：与我合作的参与者，在第 8 轮才研发成功，也就是说我们进入双赢的轮次少了 5 轮，这让我损失了 5﹡3 的收入；但是当我发现我左边的参与者至结束都未能研发成功，我反而开始庆幸我还获得了 7﹡6 的最高收入，这是否可以作为博弈中一种心态的放平；（此句以后再改，描述不佳见谅</p>
+<p>​	<strong>3</strong>：博弈的目的是为了实现自身利益的最大化，博弈目前而言在我眼里首要目标是先理解规则，实现最大化利用规则；博弈宁可碰到智者（足够了解规则之人），实现双赢（哪怕智者多赢一点）；也不要与蠢蛋（不理解规则之人），实现双输（大环境下两人收益垫底）；最怕与摆烂者（？）合作，他们无所谓自身的任何选择，甚至热衷于破坏其他参与者的利益。</p>
+<p>​	<strong>4</strong>：需要提高自身的知识水平，才能面对各种博弈下做出最优选择，实现单赢、双赢；避免单输、双输。要闷声大发财！</p>
+<p>​	<strong>5</strong>:   最后今天获得了 75.35 元的收益，付出了约 90 分钟的时间成本，算是博弈的双赢，我赢两次！</p>
+<h3 id="热烈的祝霍"><a class="markdownIt-Anchor" href="#热烈的祝霍">#</a> <em><strong>热烈的祝霍</strong></em></h3>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:linzhixin2014@163.com">Squanch777</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://squanch777.github.io/2021/10/02/zone-sum%20game/">https://squanch777.github.io/2021/10/02/zone-sum%20game/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://squanch777.github.io" target="_blank">Squanch7七柒的Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/10/03/QX5BbWya9r7VU8j.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/17/zhexuexiaoji/"><img class="prev-cover" src="https://i.loli.net/2021/10/03/QX5BbWya9r7VU8j.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">读后感</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/01/Notes-on-postry/"><img class="next-cover" src="https://i.loli.net/2021/10/03/QX5BbWya9r7VU8j.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">诗词小记</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%BC%88"><span class="toc-number">1.</span> <span class="toc-text"> 博弈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%99-%E5%85%AC%E5%BC%8F%E7%AE%80%E8%BF%B0%E7%AE%80%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 规则、公式简述（简述）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text"> 决策流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E6%80%9D"><span class="toc-number">1.3.</span> <span class="toc-text"> 反思</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E7%83%88%E7%9A%84%E7%A5%9D%E9%9C%8D"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 热烈的祝霍</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Squanch777</div><div class="footer_custom_text">何所闻而来？何所见而去？</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
